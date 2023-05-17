@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}My Account{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Current Balance</h2>
+<section class="balance">
+<p>
+  <ul>
+    <li>{{ balance }}</li>
+  </ul>
+</p>
+</section>
+
+<h2>Deposit / Withdraw</h2>
+<section class="deposit_form">
+{% if g.user %}
+<p>
+  <form method="post" action="/balance">
+    <label for="amount">Dollar Amount</label>
+    <input name="amount" id="amount" required>
+
+    <ul style="padding-left:0">
+        <input type="radio" id="deposit" name="adjust_balance" value="deposit" checked>
+        <label for="deposit"> Deposit </label>
+
+        <input type="radio" id="withdraw" name="adjust_balance" value="withdraw" style="margin-left:2em">
+        <label for="withdraw"> Withdraw </label>
+    </ul>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</p>
+{% endif %}
+</section>
+</section>{% endblock %}

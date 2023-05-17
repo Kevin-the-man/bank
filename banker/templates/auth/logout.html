@@ -1,0 +1,20 @@
+<title>{% block title %}{% endblock %} - Banker</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <h1><a href="{{ url_for('index') }}">Banker</a></h1>
+    <ul>
+        <li><a href="{{ url_for('auth.login') }}">Log In</a>
+    </ul>
+</nav>
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    <h1> You have been logged out. </h1>
+    <h1>See you again,  {{ payload }} </h1>
+    {% block content %}{% endblock %}
+</section>
+</body>

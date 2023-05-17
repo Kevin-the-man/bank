@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% if feedback %}
+            <p class="text-danger">{{ feedback }}</p>
+        {% endif %}
+        <label for="username">Username</label>
+        <input name="username" id="username" placeholder="Enter your username" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter password" required>
+
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" name="cpassword" id="cpassword" placeholder="Re-enter password" required>
+
+        <label for="firstname">First Name</label>
+        <input type="name" name="firstname" id="firstname" placeholder="Enter first name" required>
+
+        <label for="lastname">Last Name</label>
+        <input type="name" name="lastname" id="lastname" placeholder="Enter last name" required>
+
+        <label for="ibalance">Opening Balance</label>
+        <input type="digits" name="ibalance" id="ibalance" placeholder="Initial Balance" required>
+
+        <input type="submit" value="Register">
+    </form>
+{% endblock %}
