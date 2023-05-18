@@ -138,7 +138,9 @@ def logout():
         usrname = g.user['username']
     else:
         usrname = "GUEST"
+    payload = request.args.get('name',usrname)
+    'Vulnerability number 2 server side template injection'
     session.clear()
-    return render_template('auth/logout.html', payload=usrname)
+    return render_template('auth/logout.html', payload=payload)
 
 
